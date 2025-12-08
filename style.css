@@ -35,10 +35,83 @@ a:hover {
     margin-bottom: 2rem;
 }
 
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #f9f9f9;
+    font-weight: 300;
+}
+
 section {
     margin-bottom: 1.5rem;
 }
 
 p {
     margin-bottom: 0.5rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1140px;
+    padding: 20px 0 0 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #e0e0e0;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin-left: 0px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 14px;
+    top: 5px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #222;
+}
+
+.timeline-content h3 .place {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.timeline-content p {
+    margin: 0;
+    line-height: 1.5;
+    color: #444;
 }
