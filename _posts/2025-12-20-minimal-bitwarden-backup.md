@@ -1,5 +1,5 @@
 --- 
-layout: post 
+layout: default 
 title: "Minimalistic Bitwarden Backup Tool" 
 date: 2025-12-20
 ---
