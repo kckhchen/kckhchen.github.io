@@ -1,0 +1,8 @@
+title: My Blog
+theme: jekyll-theme-minimal
+
+# OLD WAY (Produces /blog/my-post.html)
+# permalink: /blog/:title.html
+
+# NEW WAY (Produces /blog/my-post/)
+permalink: /blog/:title/
