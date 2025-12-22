@@ -1,3 +1,4 @@
-title: My Posts
+title: Casey Chen
+description: Archive for my notes and thoughts.
 theme: minima
-permalink: /blog/:title/
+permalink: /blog/:categories/:slug/

@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Minimalistic Bitwarden Backup Tool
 date: 2025-12-22
-math: true
+title: 用 Shell Script 打造 Bitwarden 備份工具
+categories: [zh]
 ---
-# 用 Shell Script 打造 Bitwarden 備份工具
 
 相信大家都跟我一樣是 Bitwarden 的愛用者（如果你不是，希望你至少有使用任何一種密碼管理員），並且享受它的開源、整合 MFA、雲端同步，以及離線存取等功能。但我想也有許多人與我有同樣的擔憂：將密碼全部交給 Bitwarden 保管在雲端，哪天突然無法離線存取密碼，或無法登入 Bitwarden 怎麼辦？
 
@@ -34,7 +33,7 @@ npm install -g @bitwarden/cli
 cd path/to/dir
 touch .env
 ```
-將 `path/to/dir` 替換為你希望存放 Shell Script 檔案的位置。之後用文字編輯軟體（TextEdit、VSCode、TextMate、Nano 等）打開文件，把我們的 API key 裝進去：
+將 `path/to/dir` 替換為我們希望存放 Shell Script 檔案的位置。之後用文字編輯軟體（TextEdit、VSCode、TextMate、Nano 等）打開文件，把我們的 API key 裝進去：
 ```bash
 export BW_CLIENTID="client_id"
 export BW_CLIENTSECRET="client_secret"
@@ -86,9 +85,9 @@ BW_SESSION="IGJicWrJXTiHFhmF0f/8uzYqSzyM7SDfVWrgfwISBzHV8mRRaJyhuTPJALgoBmCgUr9q
 ```
 接著，它會要求我們廣播（export）這份 session key，讓後續指令使用。我們可以將這兩步驟結合成一步：
 ```
-export BW_SESSION=\\((bw unlock --raw)
+export BW_SESSION=$(bw unlock --raw)
 ```
-這段指令會先執行 `\\)()` 內的 `bw unlock --raw`，其中 `--raw` 會讓 Bitwarden 在驗證完成後直接回傳 session key 字串，之後這個字串會再被 `BW_SESSION` 接收，並使用 `export` 廣播給後續指令使用。很酷吧！
+這段指令會先執行 `$()` 內的 `bw unlock --raw`，其中 `--raw` 會讓 Bitwarden 在驗證完成後直接回傳 session key 字串，之後這個字串會再被 `BW_SESSION` 接收，並使用 `export` 廣播給後續指令使用。很酷吧！
 
 從現在開始我們才能大展拳腳，因為所有指令都能自由使用了。使用指令時，指令會尋找在腳本的環境中的 `BW_SESSION`，只要確認正確，就會直接執行指令，不需要再要求 master password。
 
@@ -100,9 +99,9 @@ bw export --format --password --output
 ```
 我們一項一項解釋：`--format` 要求我們輸入匯出格式，常用的有 `json`、`encrypted_json` 和 `csv`。為了保障我們的密碼安全，這裡建議使用 `encrypted_json`。接著，`--password` 是專門配合 `encrypted_json` 的參數，要求我們設定這個加密檔案的密碼。最後，`--output` 要求我們輸入密碼檔案的匯出路徑。當我們都決定好之後，就可以開始匯出：
 ```
-bw export --format encrypted_json --password "my-powerful-password" --output "~/Backups/Backup-\\((date +%F).json"
+bw export --format encrypted_json --password "my-powerful-password" --output "~/Backups/Backup-$(date +%F).json"
 ```
-請將 `my-powerful-password` 換成自己的密碼！而且請務必和 master password 一樣堅固，否則就有機會成為被盜取密碼的破口！另外 `~/Backups/Backup-\\)(date +%F).json` 會將備份檔案儲存在使用者根目錄之下的 `Backups` 資料夾，並且檔案會命名為 `Backup-yyyy-mm-dd.json`，也就是備份的日期。假設今天是 2025 年 12 月 20 日，備份資料就會是 `Backup-2025-12-20.json`，方便我們知道何時備份了密碼。如果需要更改儲存位置也請自行在此更改。
+請將 `my-powerful-password` 換成自己的密碼！而且請務必和 master password 一樣堅固，否則就有機會成為被盜取密碼的破口！另外 `~/Backups/Backup-$(date +%F).json` 會將備份檔案儲存在使用者根目錄之下的 `Backups` 資料夾，並且檔案會命名為 `Backup-yyyy-mm-dd.json`，也就是備份的日期。假設今天是 2025 年 12 月 20 日，備份資料就會是 `Backup-2025-12-20.json`，方便我們知道何時備份了密碼。如果需要更改儲存位置也請自行在此更改。
 
 > [!warning] （警告：利用此種方法設定密碼有一個致命缺點，也就是備份檔案的密碼會以純文字的形式存在這份 Shell Script 當中，也就是若有人開啟這份 Shell Script 就可以直接讀到你的備份檔案密碼！其實這裡也可以再叫出一個 prompt 讓使用者自行輸入每次的密碼，不過就不在本次的介紹範圍中。總之若要自己從頭建立這份 Shell Script，請務必使用額外的加密管道保障自己的安全！）另外，文章最後提供的工具包可以很大一部分減輕這個指令帶來的風險。
 
@@ -123,8 +122,8 @@ bw logout
 cd path/to/dir
 source .env
 bw login --apikey
-export BW_SESSION=\\((bw unlock --raw)
-bw export --format encrypted_json --password "my-powerful-password" --output "~/Backups/Backup-\\)(date +%F).json"
+export BW_SESSION=$(bw unlock --raw)
+bw export --format encrypted_json --password "my-powerful-password" --output "~/Backups/Backup-$(date +%F).json"
 bw logout
 ```
 
@@ -213,4 +212,3 @@ crontab -e
 另外，有時候 Bitwarden CLI 會因為不明原因驗證失敗（回傳空的 session key），如果你發現腳本偶爾沒反應，這可能是原因之一。我的進階版工具中加入了自動重試機制來解決這個問題。
 
 如果你對更深入的完整開發有興趣，歡迎去看看我的原始碼，如果有任何問題或是建議，也歡迎跟我說～
-
