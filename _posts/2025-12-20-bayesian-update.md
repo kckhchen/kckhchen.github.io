@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: post
 title: Bayesian Update
 date: 2025-12-20
+math: true
 ---
 
 # 貝氏統計如何做機率更新？

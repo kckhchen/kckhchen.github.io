@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: post
 title: Minimalistic Bitwarden Backup Tool
 date: 2025-12-22
+math: true
 ---
 # 用 Shell Script 打造 Bitwarden 備份工具
 
