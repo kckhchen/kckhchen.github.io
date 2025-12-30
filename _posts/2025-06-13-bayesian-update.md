@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-20
+date: 2025-06-13
 math: "true"
 title: 貝氏統計如何做機率更新？
 categories: [zh]
