@@ -49,13 +49,27 @@ board.input_to_coords('a9')
 # => [-1, 0]
 ```
 
-這可不好。我們需要隨時注意橫坐標（字母）和縱座標（數字）都沒有超出盤面座標才行。於是我們又加了一行在 return 之前的 guard clause：
+這可不好。雖然不會報錯，但是它卻安靜了傳了一個我們不能用的值 `[-1, 0]`。我們需要隨時注意橫坐標（字母）和縱座標（數字）都沒有超出盤面座標才行。於是我們又加了一行在 return 之前的 guard clause：
 
 ```ruby
 raise IndexError unless col.between?(0, 7) && row.between?(0, 7)
 ```
 
-到了這時，我們的函式已經越來越難讀了。有兩個在不同地方觸發的 guard clauses。或許當我們終於完成整個遊戲邏輯後，過了半個月，有使用者回報：「我希望輸入 `A6` 時不要報錯，因為我不喜歡小寫的 `a6`。」這時我們回去打開 500 行的 code，已經不知道從何改起，又擔心改變一個函式後，之前小心翼翼守住的所有 error 會不會又找到新的大門鑽出去。而且我們已經忘記當初做過哪些測試，所以無法一一確保我們改動完後，可以重新將半個月前做過的 20 個測試一字不差的跑一遍。
+到了這時，我們的函式已經越來越難讀了：
+
+```ruby
+# class Board
+def input_to_coords(input)
+  raise IndexError if input.empty?
+  input_array = input.split('')
+  col = input_array.first.ord - 'a'.ord
+  row = 8 - input_array.last.to_i
+  raise IndexError unless col.between?(0, 7) && row.between?(0, 7)
+  [row, col]
+end
+```
+
+有兩個在不同地方觸發的 guard clauses。或許當我們終於完成整個遊戲邏輯後，過了半個月，有使用者回報：「我希望輸入 `A6` 時不要報錯，因為我不喜歡小寫的 `a6`。」這時我們回去打開 500 行的 code，已經不知道從何改起，又擔心改變一個函式後，之前小心翼翼守住的所有 error 會不會又找到新的大門鑽出去。而且我們已經忘記當初做過哪些測試，所以無法一一確保我們改動完後，可以重新將半個月前做過的 20 個測試一字不差的跑一遍。
 
 這通常會去許多非 TDD 專案最後會淪落的下場：沒有人膽敢 refactor，只好一直疊床架屋下去，或是就不修了。
 
@@ -110,8 +124,8 @@ private
 
 def input_valid?(input)
   false unless !input.empty? && 
-			   input.split('').first.between?('a', 'h') &&
-			   input.split('').last.to_i.between?(1, 8)
+               input.split('').first.between?('a', 'h') &&
+               input.split('').last.to_i.between?(1, 8)
   true
 end
 ```
@@ -125,7 +139,7 @@ def input_valid?(input)
 end
 ```
 
-看起來清爽多了！但要小心這次的重構會不會讓我們的遊戲功能壞了，所以重構後再跑最後一次 test————全部綠燈！這就是 TDD 典型的 red-green-refactor 工作流：先讓 test 亮紅燈（red），再用各種方法符合 test 的需求（green），最後在不破壞邏輯的情況下重構程式碼（refactor）。每次要修改程式碼，就是不停的 red-green-refactor 三連拍的重複，就像在打節奏遊戲一樣，意外地療癒！（再加上 Ruby 自然流暢的語法，就像在寫 doc 一樣！）
+看起來清爽多了！但要小心這次的重構會不會讓我們的遊戲功能壞了，所以重構後再跑最後一次 test——全部綠燈！這就是 TDD 典型的 red-green-refactor 工作流：先讓 test 亮紅燈（red），再用各種方法符合 test 的需求（green），最後在不破壞邏輯的情況下重構程式碼（refactor）。每次要修改程式碼，就是不停的 red-green-refactor 三連拍的重複，就像在打節奏遊戲一樣，意外地療癒！（再加上 Ruby 自然流暢的語法，就像在寫 doc 一樣！）
 
 ## TDD 的好處
 
