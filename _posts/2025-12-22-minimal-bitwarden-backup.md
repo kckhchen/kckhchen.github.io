@@ -1,7 +1,7 @@
 ---
+title: 用 Shell Script 打造 Bitwarden 備份工具
 layout: post
 date: 2025-12-22
-title: 用 Shell Script 打造 Bitwarden 備份工具
 categories: [zh]
 ---
 

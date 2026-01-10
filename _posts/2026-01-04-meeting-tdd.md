@@ -1,10 +1,9 @@
 ---
+title: 與 TDD 的相遇
 layout: post
 date: 2026-01-04
-title: 與 TDD 的相遇
 categories: [zh]
 ---
-
 
 測試驅動開發（Test-Driven Development, TDD）是個我一見鍾情的概念，因為他解決了我長期以來寫程式時碰到的麻煩：
 1. 需要不停在 kernel 中重複複製、貼上測試的 code
