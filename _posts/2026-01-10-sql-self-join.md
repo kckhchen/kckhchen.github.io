@@ -6,7 +6,7 @@ math: "true"
 categories: [zh]
 ---
 
-在上一篇[談論不同 SQL JOINS 的文章中](../sql-joins/)，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join) 中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
+在上一篇[談論不同 SQL JOINS 的文章中](../sql-joins/)，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join)中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
 
 ## 捷運資料庫
 
@@ -165,8 +165,8 @@ ORDER BY a.lineid, a.pos;
 
 ```sql
 SELECT a.station AS fromStation, a.lineid AS line_1 -- 起點和第一段路線
-	 , b.station AS transfer -- 轉乘站名
-	 , d.lineid AS line_2, d.station AS toStation -- 第二段路線和終點
+     , b.station AS transfer -- 轉乘站名
+     , d.lineid AS line_2, d.station AS toStation -- 第二段路線和終點
 FROM route a 
 INNER JOIN route b ON a.lineid = b.lineid -- 從起點到轉乘站
 INNER JOIN route c ON b.station = c.station -- 確保兩個「轉乘站」一樣
@@ -196,7 +196,9 @@ WHERE a.station = '南港展覽館' AND d.station = '松山' -- 設定起點、�
 2. 再多加一條限制就可以解決前一題的問題，但為什麼文中的情況（南港展覽館 > 松山）卻不用？
 3. 如果進行「兩次轉乘」，古亭到中山又有幾種搭法？（答案是 12 種！）
 
+---
 
+## 註解
 
 [^1]: 為求方便，此資料沒有包含任何支線（小碧潭、新北投），橘線也僅有考慮迴龍方向的車輛。
 
