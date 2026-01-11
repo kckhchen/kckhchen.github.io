@@ -1,12 +1,9 @@
 ---
 title: 從捷運轉乘問題看 SQL SELF JOIN
 layout: post
-date: 2026-01-10
-math: "true"
-categories: [zh]
 ---
 
-在上一篇[談論不同 SQL JOINS 的文章中](../sql-joins/)，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join)中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
+在上一篇[談論不同 SQL JOINS 的文章中](../sql-joins)，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join)中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
 
 ## 捷運資料庫
 
@@ -174,6 +171,7 @@ INNER JOIN route d ON c.lineid = d.lineid -- 從轉乘站到終點
 WHERE a.station = '南港展覽館' AND d.station = '松山' -- 設定起點、終點
   AND a.lineid <> d.lineid; -- 最後確保兩條線不是同一條線，不然就不是轉乘了
 ```
+{: #secidb4ccb8}
 
 結果就會顯示成：
 
@@ -193,7 +191,7 @@ WHERE a.station = '南港展覽館' AND d.station = '松山' -- 設定起點、�
 
 現在，我們可以用同樣的邏輯，提出幾個閱後練習題：
 1. 我們能找出從「古亭」到「中山」單次轉乘，總共有多少種搭法嗎？（答案是 4 種！如果算出來是 5 種，小心有一種不能算是「轉乘」）
-2. 再多加一條限制就可以解決前一題的問題，但為什麼文中的情況（南港展覽館 > 松山）卻不用？
+2. 再多加一條限制就可以解決[前一題](#secidb4ccb8)的問題，但為什麼文中的情況（南港展覽館 > 松山）卻不用？
 3. 如果進行「兩次轉乘」，古亭到中山又有幾種搭法？（答案是 12 種！）
 
 ---
