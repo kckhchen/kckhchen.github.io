@@ -1,6 +1,6 @@
 ---
-title: 與 TDD 的相遇
 layout: post
+title: 與 TDD 的相遇
 ---
 
 測試驅動開發（Test-Driven Development, TDD）是個我一見鍾情的概念，因為他解決了我長期以來寫程式時碰到的麻煩：

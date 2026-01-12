@@ -1,6 +1,6 @@
 ---
-title: 用 Shell Script 打造 Bitwarden 備份工具
 layout: post
+title: 用 Shell Script 打造 Bitwarden 備份工具
 ---
 
 相信大家都跟我一樣是 Bitwarden 的愛用者（如果你不是，希望你至少有使用任何一種密碼管理員），並且享受它的開源、整合 MFA、雲端同步，以及離線存取等功能。但我想也有許多人與我有同樣的擔憂：將密碼全部交給 Bitwarden 保管在雲端，哪天突然無法離線存取密碼，或無法登入 Bitwarden 怎麼辦？
