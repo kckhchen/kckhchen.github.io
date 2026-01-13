@@ -3,7 +3,7 @@ layout: post
 title: 從捷運轉乘問題看 SQL SELF JOIN
 ---
 
-在上一篇[談論不同 SQL JOINS 的文章中](../sql-joins)，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join)中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
+在上一篇[談論不同 SQL JOINS 的文章中]({{ site.baseurl }}{% link _posts/2026-01-09-sql-joins.md %})，我們理解了不同 JOIN 的用法，卻沒有談及另一個也很常用的 JOIN 技巧，也就是 SELF JOIN。這系列問題一直是 SQL 中 JOIN 系列的大魔王。不過如果玩轉得當，SELF JOIN 也可以讓我們對資料做出很多很有趣的 query。這篇文章中，我從 [SQL Zoo 的公車問題](https://sqlzoo.net/wiki/Self_join)中汲取靈感，想要用台北捷運的路線轉乘問題來介紹 SELF JOIN 的邏輯和有趣的應用。
 
 ## 捷運資料庫
 
