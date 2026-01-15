@@ -102,7 +102,7 @@ bw export --format encrypted_json --password "my-powerful-password" --output "~/
 請將 `my-powerful-password` 換成自己的密碼！而且請務必和 master password 一樣堅固，否則就有機會成為被盜取密碼的破口！另外 `~/Backups/Backup-$(date +%F).json` 會將備份檔案儲存在使用者根目錄之下的 `Backups` 資料夾，並且檔案會命名為 `Backup-yyyy-mm-dd.json`，也就是備份的日期。假設今天是 2025 年 12 月 20 日，備份資料就會是 `Backup-2025-12-20.json`，方便我們知道何時備份了密碼。如果需要更改儲存位置也請自行在此更改。
 
 <div class="callout callout-warning" markdown="1">
-<div class="callout-title">Warning</div>
+<div class="callout-title"><i class="callout-icon" data-lucide="circle-alert"></i>Warning</div>
 （警告：利用此種方法設定密碼有一個致命缺點，也就是備份檔案的密碼會以純文字的形式存在這份 Shell Script 當中，也就是若有人開啟這份 Shell Script 就可以直接讀到你的備份檔案密碼！其實這裡也可以再叫出一個 prompt 讓使用者自行輸入每次的密碼，不過就不在本次的介紹範圍中。總之若要自己從頭建立這份 Shell Script，請務必使用額外的加密管道保障自己的安全！）另外，文章最後提供的工具包可以很大一部分減輕這個指令帶來的風險。
 
 </div>
@@ -215,3 +215,13 @@ crontab -e
 如果你對更深入的完整開發有興趣，歡迎去看看我的原始碼，如果有任何問題或是建議，也歡迎跟我說～
 
 {% include obsidian-callouts.html %}
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons({
+    attrs: {
+        'stroke-width': 2.5,
+        stroke: 'currentColor',
+    },
+    });
+</script>
