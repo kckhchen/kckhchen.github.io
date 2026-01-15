@@ -190,14 +190,38 @@ WHERE a.station = '南港展覽館' AND d.station = '松山' -- 設定起點、�
 希望這篇文章有讓大家更理解 SELF JOIN 的內部邏輯、應用方法、以及它的魅力。我過往一直都對 SELF JOIN 沒有什麼好感，直到碰到轉乘問題後，才發現 SELF JOIN 真的太好玩也太聰明了，於是迫不及待想寫篇文介紹。
 
 現在，我們可以用同樣的邏輯，提出幾個閱後練習題：
-1. 我們能找出從「古亭」到「中山」單次轉乘，總共有多少種搭法嗎？（答案是 4 種！如果算出來是 5 種，小心有一種不能算是「轉乘」）
+1. 我們能找出從「古亭」到「中山」單次轉乘，總共有多少種搭法嗎？（如果算出來是 5 種，小心有一種不能算是「轉乘」）
+
+<div class="callout callout-hint" markdown="1">
+<details markdown="1">
+<summary class="callout-title"><i class="callout-icon" data-lucide="flame"></i>解答</summary>
+答案是 4 種。古亭到中山只需要將[前一題](#secidb4ccb8)的 `a.station` 跟 `d.station` 改成古亭和中山，不過我們會發現多了一個 `| 古亭 | O | 古亭 | G | 中山 |`！也就是說，我們在古亭上橘線又馬上下車轉綠線去中山，這不能算轉乘，所以得要加上一個 `a.station <> b.station` 的條件。
+</details>
+</div>
 2. 再多加一條限制就可以解決[前一題](#secidb4ccb8)的問題，但為什麼文中的情況（南港展覽館 > 松山）卻不用？
-3. 如果進行「兩次轉乘」，古亭到中山又有幾種搭法？（答案是 12 種！）
+
+<div class="callout callout-hint" markdown="1">
+<details markdown="1">
+<summary class="callout-title"><i class="callout-icon" data-lucide="flame"></i>解答</summary>
+這是因為南港展覽館也是兩線的交會點，但是並沒有從南港展覽館 > 松山的直達車，因此就算從南港展覽館同站上下車轉線，也不能抵達松山。當然，如果這題的限制變成「兩次轉乘」，就要小心這個問題了！因此其實 `a.station <> b.station` 以及 `c.station <> d.station` 是兩個很必要的條件。
+</details>
+</div>
+3. 如果必須進行「兩次轉乘」，古亭到中山又有幾種搭法？
+
+<div class="callout callout-hint" markdown="1">
+<details markdown="1">
+<summary class="callout-title"><i class="callout-icon" data-lucide="flame"></i>解答</summary>
+答案是 9 種！要進行兩次轉乘，我們就得要在現有的架構上再 SELF JOIN 兩次，加上 `d.station = e.station` 和 `e.lineid = f.lineid` 兩個設定，並且要小心，限制條件會有很多！除了不能同站轉乘（如 `a.station <> b.station`）、還要小心路途上的每一個轉乘站都必須不一樣（不然等於折返或繞路），以及不能搭回同一條線（一樣是繞路），總共要加上 7 條限制式。這題最容易錯的地方就是限制條件設定太少，讓可能性變多，所以要多檢查幾次：有沒有早就到了硬要繞路？又沒有搭回同一條線？有沒有同站轉乘？
+</details>
+</div>
+希望大家解題解得開心～
 
 ---
 
 ## 註解
 
 [^1]: 為求方便，此資料沒有包含任何支線（小碧潭、新北投），橘線也僅有考慮迴龍方向的車輛。
+
+{% include obsidian-callouts.html %}
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
