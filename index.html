@@ -1,26 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Casey | Kuan-Hung Chen</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Casey | Translator</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="gateway-container">
-      <a href="./data/" class="split-pane data-pane">
-        <div class="content">
-          <h2>Casey the Data Scientist</h2>
-          <span class="btn">View Data Portfolio</span>
-        </div>
-      </a>
+    <div class="container">
+      <header>
+        <div class="hero-subtitle">Hello, I am Casey, a.k.a.</div>
+        <h1>Kuan-Hung Chen</h1>
+        <p class="hero-bio">
+          I am a Data Scientist / Statistical Researcher / Web Developer. I see
+          patterns in chaos, extract insights from noise, and present them with
+          style.
+        </p>
+        <p class="hero-bio">
+          I am also a translator by passion. I am all about building bridges:
+          from mess to order, and from one language to another.
+        </p>
 
-      <a href="./trans/" class="split-pane trans-pane">
-        <div class="content">
-          <h2>Casey the Translator</h2>
-          <span class="btn">View Translation Portfolio</span>
+        <div class="social-links">
+          <a href="https://github.com/kckhchen" class="social-btn">GitHub</a>
+          <a href="https://linkedin.com/in/kckhchen" class="social-btn"
+            >LinkedIn</a
+          >
         </div>
-      </a>
+      </header>
+
+      <section id="featured">
+        <h2>My Research</h2>
+        <div class="card">
+          <span class="card-date"
+            >MSc Distinction Project • University of Warwick</span
+          >
+          <h3>Probabilistic Weather Forecasting</h3>
+          <p>
+            My MSc dissertation "<a
+              href="./assets/docs/msc-dissertation.pdf"
+              target="_blank"
+              rel="noopener"
+              >Probabilistic Weather Forecasting with Recursive Algorithms and
+              Vine Copulas</a
+            >", under the supervision of Dr. Ritabrata Dutta, explored
+            <strong>Recursive Algorithms</strong> and
+            <strong>Vine Copulas</strong> to estimate complex nonlinear temporal
+            dependence structures in time-series data.
+          </p>
+          <div class="skills-container">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Time-Series</span>
+            <span class="tag">Copulas</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-date">Jun 2023 - Apr 2024 • Taipei</span>
+            <h3>Market Research Intern</h3>
+            <p class="text-muted">Kantar Worldpanel</p>
+            <p>
+              Developed FMCG market insights for clients. Engineered 10+
+              automation tools (VBA & Python) that reduced manual reporting
+              hours to seconds. These tools are now standard operation
+              procedure.
+            </p>
+            <div class="skills-container">
+              <span class="tag">Python</span>
+              <span class="tag">VBA</span>
+              <span class="tag">Market Analysis</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-date">Mar 2023 - Present</span>
+            <h3>Freelance Translator</h3>
+            <p class="text-muted">Multiple LSPs</p>
+            <p>
+              English to Mandarin (Traditional) subtitle translation. Portfolio
+              includes 70+ shows and 60+ hours of content ranging from feature
+              films to TV series and documentaries.
+            </p>
+            <div class="skills-container">
+              <span class="tag">Localization</span>
+              <span class="tag">EN-ZH(TW)</span>
+              <span class="tag">Subtitling</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-date">2024 - 2025 • UK</span>
+            <h3>MSc in Statistics</h3>
+            <p>University of Warwick</p>
+            <p style="color: var(--secondary); font-weight: 600">
+              Graduated with Distinction
+            </p>
+            <div class="skills-container">
+              <span class="tag">R</span>
+              <span class="tag">Python</span>
+              <span class="tag">Statistical Inference</span>
+              <span class="tag">Monte Carlo Methods</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Neural Networks</span>
+            </div>
+          </div>
+          <div class="card">
+            <span class="card-date">2019 - 2024 • Taiwan</span>
+            <h3>B.A. Economics & Literature</h3>
+            <p>National Taiwan University</p>
+            <p>Double Major • GPA 3.9 / 4.3</p>
+            <div class="skills-container">
+              <span class="tag">Econometrics</span>
+              <span class="tag">Dynamic Optimization</span>
+              <span class="tag">Game Theory</span>
+              <span class="tag">Translation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="more">
+        <h2>More About Me</h2>
+        <p>
+          I also write tech articles on my <a href="/blog">personal blog</a> in
+          Mandarin Chinese. Feel free to check it out if you're interested.
+        </p>
+        <p>
+          You can also find my CV
+          <a
+            href="./assets/docs/kuanhungchen-cv.pdf"
+            target="_blank"
+            rel="noopener"
+            ><i class="fa-solid fa-file-lines"></i> here</a
+          >.
+        </p>
+      </section>
     </div>
+
+    <footer>
+      <p>&copy; 2026 Kuan-Hung (Casey) Chen. Hosted on GitHub Pages.</p>
+    </footer>
+    <div class="custom-cursor"></div>
   </body>
 </html>
