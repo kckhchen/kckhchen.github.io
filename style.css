@@ -6,7 +6,7 @@
   --accent: #3b82f6;
   --accent-glow: rgba(59, 130, 246, 0.5);
   --secondary: #10b981;
-  --font-main: "Inter", system-ui, -apple-system, sans-serif;
+  --font-main: "Avenir", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 }
 
@@ -60,6 +60,10 @@ a {
   color: var(--accent);
   text-decoration: none;
 }
+a:hover {
+  cursor: none;
+  text-decoration: underline;
+}
 
 .container {
   max-width: 1000px;
@@ -77,9 +81,6 @@ a {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   border: 1px solid rgba(59, 130, 246, 0.2);
-}
-a:hover {
-  cursor: none;
 }
 
 header {
@@ -149,6 +150,11 @@ section {
   display: block;
 }
 
+.fineprint {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +182,7 @@ footer p {
   image-rendering: pixelated;
 }
 .custom-cursor.is-hovering {
-  background-image: url("/assets/icons/alien-hover.png");
+  background-image: url("/assets/icons/alien-pink.png");
 }
 
 @media (max-width: 768px) {
