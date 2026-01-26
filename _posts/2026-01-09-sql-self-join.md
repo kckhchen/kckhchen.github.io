@@ -1,5 +1,6 @@
 ---
 layout: post
+share: true
 title: 從捷運轉乘問題看 SQL SELF JOIN
 ---
 

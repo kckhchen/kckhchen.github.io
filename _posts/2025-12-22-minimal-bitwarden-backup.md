@@ -1,5 +1,6 @@
 ---
 layout: post
+share: true
 title: 用 Shell Script 打造 Bitwarden 備份工具
 ---
 
@@ -215,13 +216,3 @@ crontab -e
 如果你對更深入的完整開發有興趣，歡迎去看看我的原始碼，如果有任何問題或是建議，也歡迎跟我說～
 
 {% include obsidian-callouts.html %}
-
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-    lucide.createIcons({
-    attrs: {
-        'stroke-width': 2.5,
-        stroke: 'currentColor',
-    },
-    });
-</script>

@@ -1,5 +1,6 @@
 ---
 layout: post
+share: true
 title: 與 TDD 的相遇
 ---
 

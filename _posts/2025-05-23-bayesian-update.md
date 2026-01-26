@@ -1,6 +1,7 @@
 ---
 date: 2025-05-23
 layout: post
+share: true
 title: 貝氏統計如何做機率更新？
 ---
 
