@@ -61,7 +61,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  cursor: url("assets/cursors/alien-hover.cur"), default;
+  cursor: url("assets/cursors/alien-pointer.cur"), default;
   text-decoration: underline;
 }
 
