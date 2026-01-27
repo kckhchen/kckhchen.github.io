@@ -22,7 +22,7 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+  cursor: url("assets/cursors/alien.cur"), default;
 }
 
 h1,
@@ -61,7 +61,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  cursor: none;
+  cursor: url("assets/cursors/alien-hover.cur"), default;
   text-decoration: underline;
 }
 
@@ -171,7 +171,7 @@ footer p {
   font-size: 0.9rem;
 }
 
-.custom-cursor {
+/* .custom-cursor {
   width: 50px;
   height: 50px;
   background-image: url("/assets/icons/alien.png");
@@ -183,7 +183,7 @@ footer p {
 }
 .custom-cursor.is-hovering {
   background-image: url("/assets/icons/alien-pink.png");
-}
+} */
 
 @media (max-width: 768px) {
   h1 {
