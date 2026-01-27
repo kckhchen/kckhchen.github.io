@@ -1,16 +1,27 @@
-const cursor = document.querySelector(".custom-cursor");
-const links = document.querySelectorAll("a, button, .clickable");
+const typedTextSpan = document.querySelector(".typed-text");
+const cursor = document.querySelector(".cursor");
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+const text = "Kuan-Hung Chen";
 
-links.forEach((link) => {
-  link.addEventListener("mouseenter", () => {
-    cursor.classList.add("is-hovering");
-  });
-  link.addEventListener("mouseleave", () => {
-    cursor.classList.remove("is-hovering");
-  });
+const typingDelay = 90;
+const cursorRemoveDelay = 2000;
+const newTextDelay = 1000;
+
+let textIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < text.length) {
+    typedTextSpan.textContent += text.charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } else {
+    setTimeout(() => {
+      cursor.textContent = "";
+    }, cursorRemoveDelay);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(type, newTextDelay);
 });
