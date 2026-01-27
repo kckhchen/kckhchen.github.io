@@ -197,6 +197,9 @@ footer p {
   section {
     padding: 3rem 0;
   }
+  .social-links {
+    gap: 0.5rem;
+  }
 }
 
 #bouncer {
@@ -205,6 +208,7 @@ footer p {
   cursor: pointer;
   z-index: 999;
   image-rendering: pixelated;
+  touch-action: none;
 }
 
 #bouncer:hover {

@@ -71,12 +71,19 @@ function animate() {
   alien.style.left = x + "px";
   alien.style.top = y + "px";
 
-  requestAnimationFrame(animate);
+  animationId = requestAnimationFrame(animate);
 }
 
-animate();
+function catchAlien(e) {
+  if (e.cancelable) e.preventDefault();
 
-alien.addEventListener("click", () => {
+  cancelAnimationFrame(animationId);
+  alien.remove();
+
+  announceCatch();
+}
+
+function announceCatch() {
   Swal.fire({
     width: 400,
     title: "Congratulations!",
@@ -85,6 +92,8 @@ alien.addEventListener("click", () => {
     confirmButtonColor: "#10b981",
     theme: "dark",
   });
+}
 
-  alien.remove();
-});
+animate();
+alien.addEventListener("click", catchAlien);
+alien.addEventListener("touchstart", catchAlien, { passive: false });
