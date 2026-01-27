@@ -198,3 +198,28 @@ footer p {
     padding: 3rem 0;
   }
 }
+
+#bouncer {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  z-index: 999;
+  image-rendering: pixelated;
+}
+
+#bouncer:hover {
+  cursor: url("assets/cursors/alien-hover.cur"), default;
+}
+
+.swal2-title {
+  border: none;
+}
+
+.swal2-title,
+.swal2-html-container {
+  cursor: url("assets/cursors/alien.cur"), default;
+}
+
+.swal2-confirm.swal2-styled {
+  cursor: url("assets/cursors/alien-pointer.cur"), default;
+}
