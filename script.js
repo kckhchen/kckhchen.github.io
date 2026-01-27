@@ -1,3 +1,5 @@
+// Blinking cursor and typing effect
+
 const typedTextSpan = document.querySelector(".typed-text");
 const cursor = document.querySelector(".cursor");
 
@@ -25,3 +27,10 @@ function type() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(type, newTextDelay);
 });
+
+// Get current year for footer
+const yearSpan = document.getElementById("currentYear");
+
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
