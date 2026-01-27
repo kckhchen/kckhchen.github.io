@@ -98,7 +98,7 @@ header {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
-.hero-bio {
+.hero-bio p {
   max-width: 800px;
   font-size: 1.2rem;
 }
