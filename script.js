@@ -6,7 +6,7 @@ const cursor = document.querySelector(".cursor");
 const text = "Kuan-Hung Chen";
 
 const typingDelay = 90;
-const cursorRemoveDelay = 2000;
+const cursorRemoveDelay = 1800;
 const newTextDelay = 1000;
 
 let textIndex = 0;
