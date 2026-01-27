@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Get current year for footer
+
 const yearSpan = document.getElementById("currentYear");
 
 if (yearSpan) {
@@ -36,6 +37,7 @@ if (yearSpan) {
 }
 
 // Bouncing little alien
+
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
@@ -84,8 +86,9 @@ function catchAlien(e) {
 }
 
 function announceCatch() {
+  const swalWidth = Math.min(400, 0.85 * document.documentElement.clientWidth);
   Swal.fire({
-    width: 400,
+    width: swalWidth,
     title: "Congratulations!",
     html: "You caught the little alien!<br/>(Please let him go. He's scared.)",
     confirmButtonText: "Alright...",
