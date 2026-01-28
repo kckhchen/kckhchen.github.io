@@ -49,7 +49,9 @@ let x = Math.random() * document.documentElement.clientWidth * 0.8;
 // Make sure alien appears from out of the screen initially
 let y =
   window.innerHeight +
-  Math.random() * (document.documentElement.scrollHeight - window.innerHeight);
+  Math.random() *
+    (document.documentElement.scrollHeight - window.innerHeight) *
+    0.8;
 let dx = (Math.random() - 0.5) * 4;
 let dy = Math.min(2, (Math.random() - 0.5) * 4);
 const imgWidth = 30;

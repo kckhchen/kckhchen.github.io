@@ -212,7 +212,7 @@ footer p {
 }
 
 #bouncer:hover {
-  cursor: url("assets/cursors/alien-hover.cur"), default;
+  cursor: url("assets/cursors/catching-net.cur"), default;
 }
 
 .swal2-title {
