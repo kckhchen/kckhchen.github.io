@@ -189,6 +189,31 @@ footer {
   animation: blink 0.7s steps(1) infinite;
 }
 
+.inline-icon {
+  display: inline-block;
+}
+
+#netflix {
+  height: 1.2em;
+  width: 1em;
+  vertical-align: -0.2em;
+  fill: #e50914;
+}
+
+#apple {
+  height: 1.5em;
+  width: 1.5em;
+  vertical-align: -0.4em;
+  fill: #141414;
+}
+
+#disney {
+  height: 3em;
+  width: 3em;
+  vertical-align: -1em;
+  fill: #01147c;
+}
+
 .theme-toggle {
   position: absolute;
   top: 1.2rem;
