@@ -214,6 +214,20 @@ footer {
   fill: #01147c;
 }
 
+#obsidian {
+  height: 1.2em;
+  width: 1em;
+  vertical-align: -0.2em;
+  fill: #7c3aed;
+}
+
+#jekyll {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: -0.3em;
+  fill: #cc0000;
+}
+
 .theme-toggle {
   position: absolute;
   top: 1.2rem;
