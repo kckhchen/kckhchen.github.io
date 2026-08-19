@@ -5,9 +5,8 @@
   --text-muted: rgba(50, 43, 68, 0.62);
   --border-clr: rgba(50, 43, 68, 0.14);
   --shadow-clr: rgba(216, 210, 202, 0.45);
-  --font-main:
-    "Ysabeau", -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+  --bg-alt: #f3efe9;
+  --font-main: 'Ysabeau', -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 body.dark-mode {
@@ -17,6 +16,7 @@ body.dark-mode {
   --text-muted: rgba(230, 227, 236, 0.6);
   --border-clr: rgba(230, 227, 236, 0.16);
   --shadow-clr: rgba(0, 0, 0, 0.25);
+  --bg-alt: #211e29;
 }
 
 * {
@@ -81,7 +81,7 @@ a {
   font-size: 0.85rem;
 }
 .tag:not(:last-child)::after {
-  content: "·";
+  content: '·';
   margin: 0 0.5rem;
 }
 
@@ -127,7 +127,7 @@ header {
   text-decoration-color: var(--text-main);
 }
 .social-btn:not(:last-child)::after {
-  content: "/";
+  content: '/';
   color: var(--text-muted);
   opacity: 0.5;
   font-weight: 400;
@@ -138,6 +138,12 @@ header {
 
 section {
   padding: 2.5rem 0;
+}
+
+section:nth-of-type(odd) {
+  background-color: var(--bg-alt);
+  box-shadow: 0 0 0 100vmax var(--bg-alt);
+  clip-path: inset(0 -100vmax);
 }
 
 .grid {
@@ -167,6 +173,7 @@ section {
 footer {
   text-align: center;
   padding: 3rem 0;
+  background-color: var(--bg-alt);
   border-top: 1px solid var(--border-clr);
   font-size: 0.9rem;
   color: var(--text-muted);
