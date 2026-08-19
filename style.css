@@ -72,14 +72,12 @@ a {
   padding: 0 2rem;
 }
 .tag {
-  display: inline-block;
   color: var(--text-muted);
-  padding: 0.2rem 0.7rem;
-  border-radius: 2rem;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  border: 1px solid var(--border-clr);
+  font-size: 0.85rem;
+}
+.tag:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.5rem;
 }
 
 header {
@@ -103,25 +101,33 @@ header {
 }
 
 .social-links {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
+  font-size: 1.1rem;
 }
 .social-btn {
-  padding: 0.35rem 1.1rem;
-  border: 1px solid var(--border-clr);
-  border-radius: 2rem;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease;
+  color: var(--text-main);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-decoration-color: var(--border-clr);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.2s ease;
 }
 .social-btn:hover {
-  border-color: var(--text-muted);
-  color: var(--text-main);
+  text-decoration-color: var(--text-main);
+}
+.social-btn:not(:last-child)::after {
+  content: "/";
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-weight: 400;
+  margin-left: 1rem;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -131,7 +137,7 @@ section {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 .card {
