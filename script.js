@@ -94,8 +94,8 @@ function announceCatch() {
     title: "Congratulations!",
     html: "You caught the little alien!<br/>(Please let him go. He's scared.)",
     confirmButtonText: "Alright...",
-    confirmButtonColor: "#10b981",
-    theme: "dark",
+    confirmButtonColor: "#322b44",
+    theme: "light",
   });
 }
 
