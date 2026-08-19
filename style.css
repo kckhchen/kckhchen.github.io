@@ -72,7 +72,7 @@ a {
 }
 
 .container {
-  max-width: 840px;
+  max-width: calc(840px + 4rem);
   margin: 0 auto;
   padding: 0 2rem;
 }
