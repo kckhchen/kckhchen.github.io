@@ -21,7 +21,6 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: url("assets/cursors/alien.cur"), default;
 }
 
 h1,
@@ -65,9 +64,6 @@ a {
   color: var(--text-main);
   text-decoration: underline;
   text-underline-offset: 2px;
-}
-a:hover {
-  cursor: url("assets/cursors/alien-pointer.cur"), default;
 }
 
 .container {
@@ -206,28 +202,3 @@ footer p {
   }
 }
 
-#bouncer {
-  position: absolute;
-  width: 30px;
-  cursor: pointer;
-  z-index: 999;
-  image-rendering: pixelated;
-  touch-action: none;
-}
-
-#bouncer:hover {
-  cursor: url("assets/cursors/catching-net.cur"), default;
-}
-
-.swal2-title {
-  border: none;
-}
-
-.swal2-title,
-.swal2-html-container {
-  cursor: url("assets/cursors/alien.cur"), default;
-}
-
-.swal2-confirm.swal2-styled {
-  cursor: url("assets/cursors/alien-pointer.cur"), default;
-}
