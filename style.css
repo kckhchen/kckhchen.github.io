@@ -85,6 +85,16 @@ a {
   margin: 0 0.5rem;
 }
 
+.tag[style*='--icon']::before {
+  content: '';
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: -0.18em;
+  background: var(--icon) no-repeat center / contain;
+}
+
 header {
   text-align: center;
   padding: 5rem 0 2rem;
@@ -140,7 +150,7 @@ section {
   padding: 2.5rem 0;
 }
 
-section:nth-of-type(odd) {
+section:nth-of-type(even) {
   background-color: var(--bg-alt);
   box-shadow: 0 0 0 100vmax var(--bg-alt);
   clip-path: inset(0 -100vmax);
@@ -168,6 +178,19 @@ section:nth-of-type(odd) {
 .skills-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.stack-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin-bottom: 0.4rem;
+}
+.stack-label {
+  flex: 0 0 9.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 footer {
