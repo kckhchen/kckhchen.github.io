@@ -56,7 +56,6 @@ body {
 h1 {
   font-weight: 700;
   font-size: 2.6rem;
-  line-height: 1.2;
   display: inline;
 }
 h2 {
@@ -221,11 +220,14 @@ footer {
 
 .typing-container {
   font-size: 2.6rem;
+  line-height: 1.6;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .cursor {
-  display: inline-block;
+  width: 0;
   animation: blink 0.7s steps(1) infinite;
 }
 

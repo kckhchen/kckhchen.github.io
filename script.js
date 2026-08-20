@@ -71,7 +71,7 @@ function type() {
     setTimeout(type, typingDelay);
   } else {
     setTimeout(() => {
-      cursor.textContent = '';
+      cursor.style.visibility = 'hidden';
     }, cursorRemoveDelay);
   }
 }
