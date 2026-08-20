@@ -1,14 +1,7 @@
-// Light/dark theme toggle. Sets `data-theme` on <html> (which the CSS reads to
-// override the colour tokens) and remembers the choice in localStorage. With no
-// stored choice the page follows the OS via prefers-color-scheme.
-
-// Apply the stored theme as early as possible (before the DOM renders the
-// toggle) so the page doesn't flash the wrong theme.
 (function () {
   try {
     const t = localStorage.getItem('theme');
-    if (t === 'dark' || t === 'light')
-      document.documentElement.setAttribute('data-theme', t);
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
   } catch {
     /* private mode */
   }
@@ -27,15 +20,12 @@ function storedTheme() {
   }
 }
 
-// Effective theme: an explicit attribute wins, else the OS preference.
 function isDark() {
   const attr = document.documentElement.getAttribute('data-theme');
   if (attr) return attr === 'dark';
   return themeQuery.matches;
 }
 
-// Show the sun in dark mode (click → light) and the moon in light mode
-// (click → dark).
 function renderThemeToggle() {
   const dark = isDark();
   sunIcon.classList.toggle('hidden', !dark);
