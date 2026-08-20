@@ -1,41 +1,71 @@
-// Light/dark theme toggle
+// Light/dark theme toggle. Sets `data-theme` on <html> (which the CSS reads to
+// override the colour tokens) and remembers the choice in localStorage. With no
+// stored choice the page follows the OS via prefers-color-scheme.
 
-const themeToggleBtn = document.getElementById("theme-toggle");
-const body = document.body;
+// Apply the stored theme as early as possible (before the DOM renders the
+// toggle) so the page doesn't flash the wrong theme.
+(function () {
+  try {
+    const t = localStorage.getItem('theme');
+    if (t === 'dark' || t === 'light')
+      document.documentElement.setAttribute('data-theme', t);
+  } catch {
+    /* private mode */
+  }
+})();
 
-function setTheme(theme) {
-  if (theme === "dark") {
-    body.classList.add("dark-mode");
-    localStorage.setItem("theme", "dark");
-  } else {
-    body.classList.remove("dark-mode");
-    localStorage.setItem("theme", "light");
+const themeToggleBtn = document.getElementById('theme-toggle');
+const sunIcon = themeToggleBtn.querySelector('.icon-sun');
+const moonIcon = themeToggleBtn.querySelector('.icon-moon');
+const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+function storedTheme() {
+  try {
+    return localStorage.getItem('theme');
+  } catch {
+    return null;
   }
 }
 
-const currentTheme = localStorage.getItem("theme");
-const systemPrefersDark = window.matchMedia(
-  "(prefers-color-scheme: dark)",
-).matches;
-
-if (currentTheme === "dark") {
-  setTheme("dark");
-} else if (currentTheme === "light") {
-  setTheme("light");
-} else {
-  setTheme(systemPrefersDark ? "dark" : "light");
+// Effective theme: an explicit attribute wins, else the OS preference.
+function isDark() {
+  const attr = document.documentElement.getAttribute('data-theme');
+  if (attr) return attr === 'dark';
+  return themeQuery.matches;
 }
 
-themeToggleBtn.addEventListener("click", () => {
-  setTheme(body.classList.contains("dark-mode") ? "light" : "dark");
+// Show the sun in dark mode (click → light) and the moon in light mode
+// (click → dark).
+function renderThemeToggle() {
+  const dark = isDark();
+  sunIcon.classList.toggle('hidden', !dark);
+  moonIcon.classList.toggle('hidden', dark);
+  themeToggleBtn.setAttribute('aria-pressed', String(dark));
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  const next = isDark() ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try {
+    localStorage.setItem('theme', next);
+  } catch {
+    /* private mode */
+  }
+  renderThemeToggle();
 });
+
+themeQuery.addEventListener('change', () => {
+  if (!storedTheme()) renderThemeToggle();
+});
+
+renderThemeToggle();
 
 // Blinking cursor and typing effect
 
-const typedTextSpan = document.querySelector(".typed-text");
-const cursor = document.querySelector(".cursor");
+const typedTextSpan = document.querySelector('.typed-text');
+const cursor = document.querySelector('.cursor');
 
-const text = "Kuan-Hung Chen";
+const text = 'Kuan-Hung Chen';
 
 const typingDelay = 90;
 const cursorRemoveDelay = 1800;
@@ -51,18 +81,18 @@ function type() {
     setTimeout(type, typingDelay);
   } else {
     setTimeout(() => {
-      cursor.textContent = "";
+      cursor.textContent = '';
     }, cursorRemoveDelay);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(type, newTextDelay);
 });
 
 // Get current year for footer
 
-const yearSpan = document.getElementById("currentYear");
+const yearSpan = document.getElementById('currentYear');
 
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
