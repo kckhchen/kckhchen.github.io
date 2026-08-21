@@ -148,6 +148,64 @@
         </div>
       </section>
 
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <div class="card">
+            <picture
+              ><source srcset="assets/images/intaglio-icon-dark.svg" media="(prefers-color-scheme: dark)" />
+              <img class="title-icon no-select" src="assets/images/intaglio-icon.svg" alt="intaglio icon" /></picture
+            ><span class="card-date">Open-Source Project</span>
+            <h3>
+              <a href="https://github.com/kckhchen/obsidian-2-jekyll">Obsidian-2-Jekyll (Intaglio)</a>
+            </h3>
+            <p class="text-muted">Make Your Obsidian Notes Jekyll-Ready</p>
+            <p>
+              Built with Python, this is a regex-based tool that converts your
+              <svg class="inline-icon" id="obsidian"><use href="#icon-obsidian"></use></svg>Obsidian-styled Markdown
+              syntax to <svg class="inline-icon" id="jekyll"><use href="#icon-jekyll"></use></svg>Jekyll-flavored Liquid
+              tags. Obsidian has many handy syntax elements like Wikilinks, embedded images, callouts, etc., which are
+              useful until you wish to publish your posts online. This tools swaps all those elements into Jekyll's DSL
+              Liquid tags so that you can write in your flow freely, and let the tool converts them into perfectly
+              compatible Jekyll posts.
+            </p>
+            <p>
+              Better yet, this tool syncs your vault with your Jekyll site, so that you can easily upload/delete a post
+              just in your vault, and the tool will organize your Jekyll post/img folder just the way you wish. It also
+              comes with a production-grade GitHub Action that can sync your vault repo to your Jekyll repo with
+              automated PRs, so your publishing workflow becomes as simple as <strong>"write, commit, push".</strong>
+            </p>
+            <div class="skills-container">
+              <span class="tag">Python</span>
+              <span class="tag">Jekyll</span>
+              <span class="tag">Obsidian</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-date">Open-Source Project・Machine Learning</span>
+            <h3>
+              <a href="https://github.com/kckhchen/zh-tw-nlp-product-categorizer">zh-TW NLP Product Categorizer</a>
+            </h3>
+            <p class="text-muted">NLP Product Categorizer for zh-TW E-Commerce Context</p>
+            <p>
+              This is a lightweight yet powerful NLP training framework that can produce models that categorize products
+              automatically. It utilizes 2 different TF-IDF vectorizers and a SVC/MNB classifier to build a pipeline
+              that is tailored specifically to tackle zh-TW e-commerce datasets, where product names can be messy (a mix
+              of English/numeric/Chinese characters, keyword stacking, etc.).
+            </p>
+            <p>
+              It also comes with a containerized, production-ready backend API built using FastAPI and Docker, so that a
+              model can be used to predict and solve real-world business problems upon training.
+            </p>
+            <div class="skills-container">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="experience">
         <h2>Experience</h2>
         <div class="grid">
@@ -194,65 +252,6 @@
               <span class="tag">Localization</span>
               <span class="tag">EN-ZH(TW)</span>
               <span class="tag">Subtitling</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid">
-          <div class="card">
-            <picture
-              ><source srcset="assets/images/intaglio-icon-dark.svg" media="(prefers-color-scheme: dark)" />
-              <img class="title-icon no-select" src="assets/images/intaglio-icon.svg" alt="intaglio icon" /></picture
-            ><span class="card-date">Open-Source Project</span>
-            <h3>
-              <a href="https://github.com/kckhchen/obsidian-2-jekyll">Obsidian-2-Jekyll (Intaglio)</a>
-            </h3>
-            <p class="text-muted">Make Your Obsidian Notes Jekyll-Ready</p>
-            <p>
-              Built with Python, this is a regex-based tool that converts your
-              <svg class="inline-icon" id="obsidian"><use href="#icon-obsidian"></use></svg>Obsidian-styled Markdown
-              syntax to <svg class="inline-icon" id="jekyll"><use href="#icon-jekyll"></use></svg>Jekyll-flavored Liquid
-              tags. Obsidian has many handy syntax elements like Wikilinks, embedded images, callouts, etc., which are
-              useful until you wish to publish your posts online. This tools swaps all those elements into Jekyll's DSL
-              Liquid tags so that you can write in your flow freely, and let the tool converts them into perfectly
-              compatible Jekyll posts.
-            </p>
-            <p>
-              Better yet, this tool syncs your vault with your Jekyll site, so that you can easily upload/delete a post
-              just in your vault, and the tool will organize your Jekyll post/img folder just the way you wish. It also
-              comes with a production-grade GitHub Action that can sync your vault repo to your Jekyll repo with
-              automated PR, so your publishing workflow becomes as simple as <strong>"write, commit, push".</strong>
-            </p>
-            <div class="skills-container">
-              <span class="tag">Python</span>
-              <span class="tag">Jekyll</span>
-              <span class="tag">Obsidian</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <span class="card-date">Open-Source Project・Machine Learning</span>
-            <h3>
-              <a href="https://github.com/kckhchen/zh-tw-nlp-product-categorizer">zh-TW NLP Product Categorizer</a>
-            </h3>
-            <p class="text-muted">NLP Product Categorizer for zh-TW E-Commerce Context</p>
-            <p>
-              This is a lightweight yet powerful NLP training framework that can produce models that categorize products
-              automatically. It utilizes 2 different TF-IDF vectorizers and a SVC/MNB classifier to build a pipeline
-              that is tailored specifically to tackle zh-TW e-commerce datasets, where product names can be messy (a mix
-              of English/numeric/Chinese characters, keyword stacking, etc.).
-            </p>
-            <p>
-              It also comes with a containerized, production-ready backend API built using FastAPI and Docker, so that a
-              model can be used to predict and solve real-world business problems upon training.
-            </p>
-            <div class="skills-container">
-              <span class="tag">Python</span>
-              <span class="tag">NLP</span>
-              <span class="tag">FastAPI</span>
             </div>
           </div>
         </div>
