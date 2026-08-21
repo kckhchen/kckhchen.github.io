@@ -178,6 +178,8 @@ section:nth-of-type(even) {
   gap: 2rem;
 }
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--card-bg);
   border: 1px solid var(--border-clr);
   padding: 2rem;
@@ -268,6 +270,27 @@ footer {
   width: 1.2em;
   vertical-align: -0.3em;
   fill: #cc0000;
+}
+
+.title-icon {
+  position: absolute;
+  bottom: -100px;
+  right: -150px;
+  height: 500px;
+  width: 500px;
+  opacity: 0.24;
+  vertical-align: -0.5em;
+  pointer-events: none;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .theme-toggle {
