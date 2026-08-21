@@ -355,7 +355,10 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
   h1 {
     font-size: 2rem;
   }
