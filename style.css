@@ -230,6 +230,7 @@ footer {
 
 .cursor {
   width: 0;
+  transform: translateY(-0.1em);
   animation: blink 0.7s steps(1) infinite;
 }
 
