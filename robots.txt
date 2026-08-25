@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kckhchen.com/sitemap.xml
+Sitemap: https://kckhchen.com/blog/sitemap.xml
