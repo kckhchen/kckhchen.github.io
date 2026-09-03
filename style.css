@@ -8,6 +8,8 @@
   --bg-alt: #f3efe9;
   --apple-clr: #141414;
   --disney-clr: #01147c;
+  --code-bg: rgba(50, 43, 68, 0.07);
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
   --font-main: 'Ysabeau', -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -22,6 +24,7 @@
     --bg-alt: #211e29;
     --apple-clr: #f5f5f7;
     --disney-clr: #7d94ff;
+    --code-bg: rgba(230, 227, 236, 0.1);
   }
 }
 :root[data-theme='dark'] {
@@ -34,6 +37,7 @@
   --bg-alt: #211e29;
   --apple-clr: #f5f5f7;
   --disney-clr: #7d94ff;
+  --code-bg: rgba(230, 227, 236, 0.1);
 }
 
 * {
@@ -85,6 +89,34 @@ a {
   color: var(--text-main);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+code,
+kbd,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+code,
+kbd {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-clr);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: inherit;
 }
 
 .container {
