@@ -316,6 +316,11 @@ footer {
   pointer-events: none;
 }
 
+#sootow-wordmark {
+  right: -20px;
+  bottom: -200px;
+}
+
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -402,5 +407,10 @@ footer {
   }
   .social-links {
     gap: 0.5rem;
+  }
+  #sootow-wordmark {
+    width: 80vw;
+    right: -10px;
+    bottom: -220px;
   }
 }
