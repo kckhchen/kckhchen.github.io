@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <script src="script.js" defer></script>
+    <script type="module" src="pi5-widget.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -409,10 +410,32 @@
           </p>
         </div>
       </section>
+
+      <section id="pi-showcase" class="pi-showcase">
+        <div class="pi5-widget" id="pi5-widget" role="region" aria-label="Interactive 3D Raspberry Pi 5">
+          <canvas
+            class="pi5-canvas"
+            id="pi5-canvas"
+            tabindex="0"
+            aria-label="3D Raspberry Pi 5 model. Drag to rotate, double-click or press R to reset view."
+          ></canvas>
+          <span class="pi5-shadow" aria-hidden="true"></span>
+        </div>
+        <p class="pi-caption">
+          <span>This website is hosted on a <span class="pi-accent">Pi!</span></span>
+        </p>
+        <div class="pi-note">
+          <p>
+            I love Pi. This website is hosted on my personal Raspberry Pi 5 sitting next to my Mac, so you get it
+            straight from oven to tab(le). When the Pi is down, GitHub serves you the pre-baked version. Shout out to
+            <strong>Gemini 4 Neon</strong>, who made this spinning thingy for me. Isn't it buttery :)
+          </p>
+        </div>
+      </section>
     </div>
 
     <footer>
-      <p>&copy; <span id="currentYear"></span> Kuan-Hung Chen. Hosted on GitHub Pages.</p>
+      <p>&copy; <span id="currentYear"></span> Kuan-Hung Chen. All correlations reserved (causation not included).</p>
     </footer>
   </body>
 </html>
