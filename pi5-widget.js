@@ -167,6 +167,7 @@ function initPi5Widget(container, canvasEl) {
   const shadowEl = container.querySelector('.pi5-shadow');
   let lastTime = performance.now();
 
+  const piOnline = document.getElementById('pi-showcase')?.dataset.servedBy !== 'backup';
   function animate(now) {
     requestAnimationFrame(animate);
     const dt = Math.min((now - lastTime) / 1000, 0.05);
@@ -208,8 +209,13 @@ function initPi5Widget(container, canvasEl) {
 
     // Subtle live Raspberry Pi activity LED heartbeat
     if (statusLedMat) {
-      const pulse = 0.65 + 0.35 * Math.sin(t * 2.8) + 0.25 * Math.max(0, Math.sin(t * 11.3) * Math.sin(t * 1.7));
-      statusLedMat.emissiveIntensity = 1.1 + pulse * 1.2;
+      if (piOnline) {
+        const pulse = 0.65 + 0.35 * Math.sin(t * 2.8) + 0.25 * Math.max(0, Math.sin(t * 11.3) * Math.sin(t * 1.7));
+        statusLedMat.emissiveIntensity = 1.1 + pulse * 1.2;
+      } else {
+        statusLedMat.emissiveIntensity = 0;
+        statusLedMat.color.setHex(0x1f2937);
+      }
     }
 
     renderer.render(scene, camera);
